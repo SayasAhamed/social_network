@@ -1,20 +1,21 @@
 # 🌐 Social Hub – PHP Social Networking Platform
 
-A fully functional **social media web application** built using **PHP, MySQL, HTML, CSS, and JavaScript**, featuring real-time interactions, messaging, and a complete admin moderation system.
+A fully functional **social media web application** built using **PHP, MySQL, HTML, CSS, and JavaScript**, featuring real-time messaging, user interaction, and a complete admin moderation system.
 
 ---
 
 ## 📌 Overview
 
-**Social Hub** is a complete social networking platform where users can:
+**Social Hub** is a full-stack social networking platform where users can:
 
 * Connect and interact
-* Share posts and media
+* Share posts (text + images)
+* Comment and engage
 * Chat in real-time
 * Manage profiles
 * Report issues
 
-Admins can fully control the system via a powerful dashboard.
+Admins can monitor and control the entire system via a dedicated dashboard.
 
 ---
 
@@ -23,8 +24,9 @@ Admins can fully control the system via a powerful dashboard.
 ### 🔐 Authentication System
 
 * User registration & login
-* Secure session handling
-* Password recovery with security questions
+* Session-based authentication
+* Password recovery using security questions
+* **Admin auto-detection & redirect system**
 
 ---
 
@@ -44,8 +46,6 @@ Admins can fully control the system via a powerful dashboard.
 * Timeline feed
 * Single post view
 
-👉 Core logic → 
-
 ---
 
 ### 💬 Comment System
@@ -53,8 +53,6 @@ Admins can fully control the system via a powerful dashboard.
 * Add comments
 * View comments per post
 * Linked with users
-
-👉 Comment handling → 
 
 ---
 
@@ -77,8 +75,6 @@ Admins can fully control the system via a powerful dashboard.
 
 * Optimized feed loading
 
-👉 Pagination logic → 
-
 ---
 
 ### 🚨 Report System
@@ -90,34 +86,30 @@ Admins can fully control the system via a powerful dashboard.
 
 ## 👑 Admin Panel
 
-### ⚙️ Dashboard Controller
+A powerful backend dashboard for full platform control:
 
-* Dynamic routing system
-
----
-
-### 👥 User Management
-
-* View, edit, delete users
+* 👥 Manage users
+* 📝 Moderate posts
+* 💬 Control comments
+* 🚨 Handle reports
+* ⚙️ Dashboard overview
 
 ---
 
-### 📝 Post Moderation
+## 🔐 Default Login Credentials
 
-* View posts
-* Delete posts + comments → 
+### 👑 Admin Account
 
----
+* **Email:** [admin@example.com](mailto:admin@example.com)
+* **Password:** admin123
 
-### 💬 Comment Moderation
-
-* View & delete comments
+👉 Logging in with this account will **automatically redirect to the Admin Dashboard**
 
 ---
 
-### 🚨 Reports Management
+### 👤 User
 
-* Handle user reports
+* Register a new account from signup page
 
 ---
 
@@ -131,117 +123,132 @@ Admins can fully control the system via a powerful dashboard.
 
 ---
 
-## 📁 Project Structure (Real Hierarchy)
+## 📁 Project Structure
 
-```bash
+```bash id="z4qg8n"
 social_network/
 │
-├── admin/                         # Admin Dashboard
-│   ├── admin.php
-│   ├── admin_users.php
-│   ├── admin_posts.php
-│   ├── admin_comments.php
-│   ├── reports.php
-│   ├── view_post.php
-│   ├── view_profile.php
-│   ├── view_user.php
-│   ├── delete_user.php
-│   └── admin_includes/
+├── admin/                 # Admin Dashboard
+├── functions/             # Core backend logic
+├── includes/              # DB connection & shared components
+├── users/                 # Profile images
+├── imagepost/             # Post images
+├── cover/                 # Cover photos
+├── report_image/          # Report uploads
+├── images/                # UI assets
 │
-├── functions/                     # Core Backend Logic
-│   ├── functions.php
-│   ├── comments.php
-│   ├── delete_post.php
-│   └── pagination.php
+├── home.php               # Feed
+├── profile.php            # Profile page
+├── user_profile.php       # Public profile
+├── messages.php           # Chat system
 │
-├── includes/                      # DB & Shared Components
-│   ├── connection.php
-│   ├── header.php
-│   └── contact.php
-│
-├── users/                         # User profile images
-├── imagepost/                     # Post images
-├── cover/                         # Cover photos
-├── report_image/                  # Report uploads
-├── images/                        # UI assets
-│
-├── home.php                       # Main feed
-├── profile.php                    # Profile page
-├── user_profile.php               # Public profile
-├── messages.php                   # Chat system
-├── fetch_messages.php             # Message fetch API
-├── submit_message.php             # Send message
-│
-├── login.php / signup.php         # Auth pages
+├── login.php / signup.php
 ├── logout.php
 ├── forgot_password.php
 ├── change_password.php
 │
-├── single.php                     # Single post view
-├── members.php                    # User search
-├── results.php                    # Search results
-├── my_post.php                    # User posts
+├── single.php             # Single post
+├── members.php            # User search
+├── results.php
+├── main.php
 │
-└── main.php                       # Entry point
+└── MySQL Database/
+    └── social_network.sql.gz
 ```
-
-👉 Based on your actual hierarchy → 
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### 1️⃣ Clone
+### 1️⃣ Clone Repository
 
-```bash
+```bash id="4qj0d3"
 git clone https://github.com/yourusername/social-hub.git
 ```
 
 ---
 
-### 2️⃣ Database
+### 2️⃣ Move to XAMPP
 
-* Create DB: `social_network`
-* Import SQL file
+```id="w5jvse"
+C:\xampp\htdocs\
+```
 
 ---
 
-### 3️⃣ Config
+### 3️⃣ Setup Database
 
-```php
+1. Open **phpMyAdmin**
+2. Create a new database:
+
+```
+social_network
+```
+
+3. Import the file:
+
+```id="c1o7fj"
+MySQL Database/social_network.sql.gz
+```
+
+---
+
+### 4️⃣ Configure Database Connection
+
+Edit:
+
+```id="rq7j0r"
+includes/connection.php
+```
+
+```php id="7f1l3z"
 $conn = mysqli_connect("localhost","root","","social_network");
 ```
 
 ---
 
-### 4️⃣ Run
+### 5️⃣ Run the Project
 
-```
+Open in browser:
+
+```id="3vhlfp"
 http://localhost/social_network/
 ```
 
 ---
 
-## ⚡ Workflow
+## ⚡ System Workflow
 
-```bash
-User → Login/Register
+```bash id="9c6x9r"
+User → Register/Login
       ↓
 Create Post → Feed → Comment
       ↓
-Chat System → Interaction
+Messaging System → Interaction
       ↓
-Reports → Admin → Moderation
+Report Issues → Admin Dashboard → Moderation
 ```
 
 ---
 
-## ⚠️ Known Issues (Honest)
+## 📸 Screenshots
+
+> Add:
+
+* Login page
+* Home feed
+* Profile page
+* Chat interface
+* Admin dashboard
+
+---
+
+## ⚠️ Known Issues
 
 * ❌ SQL injection risks (some raw queries)
-* ❌ File upload validation missing
 * ❌ No CSRF protection
-* ❌ Weak delete handling (GET-based) → 
+* ❌ File upload validation missing
+* ❌ Weak delete handling (GET-based)
 
 ---
 
@@ -249,10 +256,10 @@ Reports → Admin → Moderation
 
 * 🔐 Use prepared statements everywhere
 * 🔑 bcrypt password hashing
-* 📡 REST API + React frontend
-* 🔔 Notifications system
-* 📱 Mobile UI improvements
-* ☁️ Deployment (cloud hosting)
+* 📡 Convert to REST API
+* 🔔 Real-time notifications
+* 📱 Mobile responsive UI
+* ☁️ Cloud deployment
 
 ---
 
@@ -267,7 +274,7 @@ Reports → Admin → Moderation
 
 ## ⭐ Support
 
-* ⭐ Star this repo
+* ⭐ Star the repository
 * 🍴 Fork it
 * 🛠️ Contribute
 
