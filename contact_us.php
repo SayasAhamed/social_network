@@ -14,7 +14,11 @@ session_start();
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         body {
+<<<<<<< HEAD
             background-image: url('images/Background.png');
+=======
+            background-image: url('images/background.png');
+>>>>>>> 2864e04c823497790361784e297100e89fccd1ee
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
