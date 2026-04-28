@@ -1,0 +1,105 @@
+body {
+    background-image: url('images/index_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#upload_image_button{	/*Select Image Button*/
+	position: absolute;
+	top: 50.5%;
+	right: 14%;
+	min-width: 100px;
+	max-width: 100px;
+	border-radius: 4px;
+	transform: translate(-50%, -50%);
+}
+label{
+	padding: 7px;
+	display: table;
+	color: #fff;
+}
+input[type="file"]{
+	display: none;
+}
+#content{
+	width: 100%;
+}
+#btn-post{  	 /*What's on your mind - TextArea*/
+	min-width: 25%;
+	max-width: 25%;
+}
+#insert_post{		/*Page border include post area*/
+	background-color: #fff;
+	border: 2px solid #e6e6e6;
+	padding: 40px 50px;
+}
+#posts{
+	border: 5px solid #e6e6e6;
+	padding: 40px 50px;
+}
+#posts-img{
+	padding-top: 5px;
+	padding-right: 10px;
+	min-width: 102%;
+	max-width: 50%;
+	
+}
+#single_posts{
+	border: 5px solid #e6e6e6;
+	padding: 40px 50px;
+	
+}
+
+
+.pb-cmnt-container{
+	font-family: Lato;
+	margin-top: 100px;
+}
+.pb-cmnt-textarea{
+	resize: none;
+	padding: 20px;
+	height: 110px;
+	width: 100%;
+	border: 1px solid #f2f2f2;
+}
+#find_peple{
+	border: 5px solid #e6e6e6;
+	padding: 40px 50px;
+}
+#result_posts{
+	border: 5px solid #e6e6e6;
+	padding: 40px 50px;
+}
+
+form.search_form input[type="text"]{
+	padding: 10px;
+	font-size: 17px;
+	border-radius: 4px;
+	border: 1px solid gray;
+	float: left;
+	width: 80%;
+	background: #f1f1f1;
+}
+form.search_form button{
+	float: left;
+	width: 20%;
+	padding: 10px;
+	background: #2196F3;
+	color: white;
+	font-size: 17px;
+	border: 1px solid gray;
+	border-left: none;
+	cursor: pointer;
+}
+
+form.search_form button:hover{
+	background: #0b7dda;
+}
+
+form.search_form::after{
+	content: "";
+	clear: both;
+	display: table;
+}
